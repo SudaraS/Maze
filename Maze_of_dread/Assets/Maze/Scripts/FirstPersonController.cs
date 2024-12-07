@@ -17,7 +17,7 @@ public class FirstPersonController : MonoBehaviour
     private AudioSource collectablesAudioSource;
     private int totalItems = 3; // Total number of items to collect
     private int itemsCollected = 0; // Counter for collected items
-    public GameObject GameOverScreen;
+    // public GameObject GameOverScreen;
 
     public ParticleSystem BurstEffect; // Particle effect prefab for collection
     public AudioClip bookSound; // Audio for collecting book
@@ -53,22 +53,22 @@ public class FirstPersonController : MonoBehaviour
         }
 
         // Find GameOverPanel in the scene if not assigned
-        if (GameOverScreen == null)
-        {
-            GameOverScreen = GameObject.Find("GameOverPanel");
-            if (GameOverScreen == null)
-            {
-                Debug.LogError("GameOverPanel not found! Ensure it's named correctly in the scene.");
-            }
-        }
+        // if (GameOverScreen == null)
+        // {
+        //     GameOverScreen = GameObject.Find("GameOverPanel");
+        //     if (GameOverScreen == null)
+        //     {
+        //         Debug.LogError("GameOverPanel not found! Ensure it's named correctly in the scene.");
+        //     }
+        // }
 
         // Hide the GameOver screen initially
-        if (GameOverScreen != null)
-        {
-            GameOverScreen.SetActive(false);
-        }
+    //     if (GameOverScreen != null)
+    //     {
+    //         GameOverScreen.SetActive(false);
+    //     }
+    // }
     }
-
     void Update()
     {
         MovePlayer();
@@ -160,20 +160,20 @@ public class FirstPersonController : MonoBehaviour
 
         Debug.Log($"Collected {itemsCollected}/{totalItems} items.");
 
-        if (itemsCollected >= totalItems)
-        {
-            ShowGameOver();
-        }
+        // if (itemsCollected >= totalItems)
+        // {
+        //     ShowGameOver();
+        // }
     }
 
-    void ShowGameOver()
-    {
-        if (GameOverScreen != null)
-        {
-            GameOverScreen.SetActive(true);
-        }
-        Time.timeScale = 0f; // Pause the game
-    }
+    // void ShowGameOver()
+    // {
+    //     if (GameOverScreen != null)
+    //     {
+    //         GameOverScreen.SetActive(true);
+    //     }
+    //     Time.timeScale = 0f; // Pause the game
+    // }
 
     public void RestartGame()
     {
@@ -185,4 +185,5 @@ public class FirstPersonController : MonoBehaviour
         Time.timeScale = 1f; // Resume the game time
         SceneManager.LoadScene("MainMenuScene"); // Load the main menu scene
     }
+    
 }
